@@ -5,8 +5,9 @@ CREATE TABLE book_publisher (
   idbook int NOT NULL,
   idpublisher int NOT NULL,
   PRIMARY KEY (idbook, idpublisher),
-  CONSTRAINT 'fk_book_publisher_1' FOREIGN KEY (idbook) REFERENCES Book (idbook),
-  CONSTRAINT 'fk_book_publisher_2' FOREIGN KEY (idpublisher) REFERENCES Publisher (idpublisher)
+  FOREIGN KEY (idbook) REFERENCES Book (idbook),
+  FOREIGN KEY (idpublisher) REFERENCES Publisher (idpublisher)
 ) ENGINE=InnoDB;
 
+--changeset User1:add3
 INSERT INTO book_publisher VALUES (1,1),(2,2),(2,1),(1,2);

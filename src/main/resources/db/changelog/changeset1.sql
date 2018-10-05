@@ -6,4 +6,6 @@ CREATE TABLE Book(
   name varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB;
 
+
+--changeset User1:add1
 INSERT INTO Book VALUES (1,'first book'),(2,'second book');
