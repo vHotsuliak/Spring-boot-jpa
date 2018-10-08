@@ -1,5 +1,6 @@
 package com.controllers;
 
+import com.model.Book;
 import com.model.Publisher;
 import com.repositorys.PublisherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ import java.util.List;
 @RequestMapping("/publisher")
 public class PublisherController {
     @Autowired
-    PublisherRepository publisherRepository;
+    private PublisherRepository publisherRepository;
 
     @RequestMapping("")
     public List<Publisher> getall(){
@@ -25,8 +26,13 @@ public class PublisherController {
         return publisherRepository.getOne(Integer.valueOf(id));
     }
 
-    @RequestMapping("/book{id}")
+    @RequestMapping("/book/{id}")
     public List<Publisher> getBookPublisher(@PathVariable("id") String id){
         return publisherRepository.findByBooksId(Integer.valueOf(id));
+    }
+
+    @RequestMapping("{idpublisher}/book/{idbook}")
+    public Publisher getBookByPublisherAndBookIds(@PathVariable("idpublisher") String idpublisher, @PathVariable("idbook") String idbook){
+        return publisherRepository.findByIdAndBooksId(Integer.valueOf(idpublisher), Integer.valueOf(idbook));
     }
 }

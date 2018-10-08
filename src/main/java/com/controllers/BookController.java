@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/book")
 public class BookController {
     @Autowired
-    BookRepository bookRepository;
+    private BookRepository bookRepository;
 
     @RequestMapping("")
     public List<Book> getall(){
@@ -25,8 +25,13 @@ public class BookController {
         return bookRepository.getOne(Integer.valueOf(id));
     }
 
-    @RequestMapping("/publisher{id}")
-    public List<Book> getBookPublisher(@PathVariable("id") String id){
+    @RequestMapping("/publisher/{id}")
+    public List<Book> getBookByPublisher(@PathVariable("id") String id){
         return bookRepository.findByPublishersId(Integer.valueOf(id));
+    }
+
+    @RequestMapping("{idbook}/publisher/{idpublisher}")
+    public Book getBookByPublisherAndBookIds(@PathVariable("idbook") String idbook, @PathVariable("idpublisher") String idpublisher){
+        return bookRepository.findByIdAndPublishersId(Integer.valueOf(idbook), Integer.valueOf(idpublisher));
     }
 }

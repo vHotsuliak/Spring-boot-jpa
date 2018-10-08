@@ -9,3 +9,6 @@ CREATE TABLE Book(
 
 --changeset User1:add1
 INSERT INTO Book VALUES (1,'first book'),(2,'second book');
+
+--changeset User1:add1.1
+INSERT INTO Book VALUES (3,'Third book');
