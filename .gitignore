@@ -1,6 +1,5 @@
 /target/
 !.mvn/wrapper/maven-wrapper.jar
-!target/Spring-boot-jpa-0.0.1-SNAPSHOT.jar
 
 ### STS ###
 .apt_generated
