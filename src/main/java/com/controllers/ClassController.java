@@ -27,16 +27,16 @@ public class ClassController {
     }
 
     @GetMapping("/{id}")
-    public List<Class> getClassById(@RequestParam("id") String id) {
+    public List<Class> getClassById(@PathVariable String id) {
         return null;
     }
 
-    @PostMapping("/{id}")
-    public void editClassById(@RequestParam("id") String id) {
+    @PutMapping("/{id}")
+    public void editClassById(@PathVariable String id) {
     }
 
     @GetMapping("/{id_class}/subjects/{id_subject}/journal")
-    public String getJournalForClassBySubject() {
+    public String getJournalForClassBySubject(@PathVariable String id_class, @PathVariable String id_subject) {
         return null;
     }
 }
